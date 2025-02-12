@@ -3,7 +3,17 @@ const http = require('http');
 const server = http.createServer( (req, res) => {
     const url = req.url;
     if (url === '/') {
-
+        res.setHeader('Content-Type', 'text/html'); // this is required
+        res.write('<html>');
+            res.write('<head><title>Enter Message</title></head>');
+                res.write('<body>');
+                    res.write('<form action="/message" method="POST">'); // GET, POST,
+                        res.write('<input type="text" name="message">'); // POST will send all the data within the form elements
+                        res.write('<button type="submit">Send</button>');
+                    res.write('</form>')
+                res.write('</body>');
+        res.write('</html>');
+        return res.end(); // return is required otherwise the next code block below will be executed
     }
     
     res.setHeader('Content-Type', 'text/html');     
@@ -17,9 +27,13 @@ const server = http.createServer( (req, res) => {
     //res.write(); // this line will result in an error since you cannot write after called res.end()
 })
 
-server.listen(3004);
+server.listen(3008);
 
-// open the chrome developer tools and show the response and headers
-// Express will make the process of sending html data a lot easier but 
-// we have learnt to do this by writing the raw html code ourselves
+/*
+This will display a form. You can submit it which will take you to /message
+
+Show what happens when you type /anything on the address bar
+*/
+
+
 
