@@ -2,7 +2,12 @@ const http = require('http'); // require is a keyword used to import modules. It
 // ./ relative path   / absolute path
 // no need to add .js at the end
 // if you do not include a . or / then node will look for the global module named http in this case
+// const http - this can be anything but require('http') has to be http core module
 
+// demo how this can be written outside and called inside createserver and how it can be moved inside 
+function requestHandler(req,res) {
+    console.log(req);
+}
 
 // createServer needs a request listener function which will listen for requests.
 // the listener function can be function declaration 
