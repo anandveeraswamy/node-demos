@@ -34,9 +34,9 @@ const server = http.createServer( (req, res) => {
             console.log(parsedBody);
             const message = parsedBody.split('=')[1];
             fs.writeFileSync('message.txt', message); 
-
-            res.statusCode = 302; // code for redirection. 
-            res.setHeader('Location', '/'); // url to redirect to
+            // moved the following three lines inside the end event
+            res.statusCode = 302;  
+            res.setHeader('Location', '/'); 
             return res.end();
         });       
     }

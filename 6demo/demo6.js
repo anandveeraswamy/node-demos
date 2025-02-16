@@ -57,6 +57,7 @@ server.listen(3004);
 Here we get the message in chunks, convert it and write it to the file.
 This looks very complex but express will make this very easy for us. But to understand how 
 express does this, it is important to understand how Node does it.
+Observe how if you type '/message' directly in the url that is GET and hence goes to the welcome page
 */
 
 
